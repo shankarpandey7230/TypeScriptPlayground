@@ -45,3 +45,18 @@ for (let book of books) {
     }
 }
 console.log(foundBook === null || foundBook === void 0 ? void 0 : foundBook.length);
+// arrays
+let prices = [100, 75, 42];
+// be careful [] means literally empty array
+// let randomvalues: [] = [1];
+let emptyvalues = [];
+// be careful with inferred array types
+// let names = ['peter', 'susan'];
+let names = ['peter', 'susan', 1];
+let array = ['apple', true, 'orange'];
+// Challenges
+let temperatures = [20, 25, 30];
+// temperatures.push('hot');
+let colors = ['red', 'green', 'blue'];
+// colors.push(true);
+let mixedArray = [1, 'two', 3];

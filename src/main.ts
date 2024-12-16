@@ -67,3 +67,24 @@ console.log(foundBook?.length);
 // arrays
 
 let prices: number[] = [100, 75, 42];
+
+// be careful [] means literally empty array
+// let randomvalues: [] = [1];
+let emptyvalues: number[] = [];
+
+// be careful with inferred array types
+// let names = ['peter', 'susan'];
+let names = ['peter', 'susan', 1];
+let array :(string | boolean)[]=['apple', true, 'orange']
+
+
+
+// Challenges
+
+
+let temperatures:number[] =[20,25,30];
+// temperatures.push('hot');
+let colors: string[] =['red', 'green', 'blue'];
+// colors.push(true);
+
+let mixedArray:(number |string) []=[1,'two', 3]

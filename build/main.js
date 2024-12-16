@@ -60,3 +60,13 @@ let temperatures = [20, 25, 30];
 let colors = ['red', 'green', 'blue'];
 // colors.push(true);
 let mixedArray = [1, 'two', 3];
+// Object Fundamentals
+let car = { brand: 'toyota', year: 2020 };
+car.brand = 'ford';
+// car.color = 'blue';
+let car1 = { brand: 'audi', year: 2021 };
+let book = { title: "book", cost: 20 };
+let pen = { title: "pen", cost: 10 };
+let notebook = { title: "notebook" };
+// let items:{title:string; cost:number}[] =[book, pen , notebook]
+let items = [book, pen]; //will work 

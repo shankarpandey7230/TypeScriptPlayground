@@ -106,8 +106,8 @@ function addThree(number) {
     let anotherNumber = 3;
     return number + anotherNumber;
 }
-const result = addThree(2);
-const someValue = result;
+// const result = addThree(2);
+// const someValue =result;
 // // run time error
 // someValue.myMethod()
 // CHALLENGES 
@@ -122,3 +122,26 @@ if (isNameInList(nameToCheck)) {
 else {
     console.log(`${nameToCheck} is not in the list`);
 }
+// Optional, Default and Rest Parameters
+function calculatePrice(price, discount) {
+    return price - (discount || 0);
+}
+let priceAfterDiscount = calculatePrice(100, 200);
+let priceWithoutDiscount = calculatePrice(300);
+function calculateScore(initialScore, penaltyPoints = 0) {
+    return initialScore - penaltyPoints;
+}
+let scoreAfterPenalty = calculateScore(100, 20);
+console.log(scoreAfterPenalty);
+let scoreWithoutPenalty = calculateScore(300);
+console.log(scoreWithoutPenalty); // Output: 300
+// Rest Parameter
+function sum(message, ...numbers) {
+    const doubled = numbers.map((num) => num * 2);
+    console.log(doubled);
+    let total = numbers.reduce((previous, current) => {
+        return previous + current;
+    }, 0);
+    return `${message} ${total}`;
+}
+let result = sum('The total is:', 1, 2, 3, 4, 5);

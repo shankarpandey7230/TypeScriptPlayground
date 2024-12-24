@@ -225,3 +225,50 @@ In JavaScript, a rest parameter is denoted by three dots(...) before the paramet
  }
  let result = sum ('The total is:', 1,2,3,4,5)
 ```
+
+
+### Functions - "void" return type
+
+In TypeScript, void is a special type that represents the absence of a value. When used as a function return type, void indicates that function does not return a value.
+```ts
+function logMessage(message:string):void{
+  console.log(messsage);
+}
+logMessage(`Hello TypeScript`);
+```
+
+It's important to note that in TypeScript, a function that is declared with a void return type can still return a value, but the value will be ignored.For example, the following code is valid TypeScript.
+
+```ts
+function logMessage(message:string):void{
+  console.log(message);
+  return `This value is ignore`;
+  logMessage('Hello, TypeScript!'); // 
+
+}
+```
+
+## Functions - Using Union Types as Function Parameters
+
+### Challenge
+
+Your task is to create a function named processInput that accepts a parameter of a union type string | number. The function should behave as follows:
+
+- If the input is of type number, the function should multiply the number by 2 and log the result to the console.
+- If the input is of type string, the function should convert the string to uppercase and log the result to the console.
+
+```ts
+function processInput(input: string | number) {
+  if (typeof input === 'number') {
+    console.log(input * 2);
+  } else {
+    console.log(input.toUpperCase());
+  }
+}
+
+processInput(10); // Output: 20
+processInput('Hello'); // Output: HELLO
+```
+
+In this example, the processInput function takes a parameter input that can be either a string or a number. Inside the function, we use a type guard (typeof input === 'number') to check the type of input at runtime. If input is a number, we double it. If input is a string, we convert it to uppercase.
+

@@ -318,18 +318,127 @@
 //   createStudent({id:1, name:'shankar'}); // will have error if we add the properties 
 
 // Challenges
-function processData(
-    input :string |number,
-    config:{reverse:boolean} = {reverse:false}
-):string|number{
-    if (typeof input === 'number'){
-        return input *input;
-    }
-    else{
-        return  config.reverse ? input.toUpperCase().split('').reverse().join(''):input.toUpperCase();
+// function processData(
+//     input :string |number,
+//     config:{reverse:boolean} = {reverse:false}
+// ):string|number{
+//     if (typeof input === 'number'){
+//         return input *input;
+//     }
+//     else{
+//         return  config.reverse ? input.toUpperCase().split('').reverse().join(''):input.toUpperCase();
 
-    }
+//     }
+// }
+// console.log(processData(10)); // output 100
+// console.log(processData('Hello')); // output:HELLo
+// console.log(processData(`Hello`, {reverse:true})) //
+
+// const john: { id: number; name: string; isActive: boolean } = {
+//     id: 1,
+//     name: 'john',
+//     isActive: true,
+//   };
+//   const susan: { id: number; name: string; isActive: boolean } = {
+//     id: 1,
+//     name: 'susan',
+//     isActive: false,
+//   };
+  
+//   function createUser(user: { id: number; name: string; isActive: boolean }): {
+//     id: number;
+//     name: string;
+//     isActive: boolean;
+//   } {
+//     console.log(`Hello there ${user.name.toUpperCase()} !!!`);
+  
+//     return user;
+//   }
+
+//   type User ={id:number; name:string; isActive:boolean};
+
+//   const john:User ={
+//     id:1,
+//     name:'john', 
+//     isActive:true,
+
+//   };
+//   const susan :User ={
+//     id:1,
+//     name:'susan',
+//     isActive:false,
+//   }
+//   function createUser(user:User):User{
+
+//     console.log(`Hello there ${user.name.toUpperCase()} !!!`);
+  
+//     return user;
+//   }
+
+//   type StringOrNumber = string | number ;  // type alias for string |number
+//   let value :StringOrNumber;
+//   value='hello'; //This is valid
+//   value =123;   //this is valid
+//   type Theme = 'light' | 'dark';
+
+//   let theme:Theme;
+//   theme ='light'; //This is valid
+//   theme ='dark'; // This is valid
+
+// //   Function that accepts the Theme type alias
+// function setTheme(t:Theme){
+//     theme = t;
+
+// }
+// setTheme('dark');  //This will set the theme to 'dark'
+
+
+// type Employee = {id:number; name:string; department:string};
+// type Manager = {id:number; name:string; employees:Employee[]};
+// type Staff = Employee | Manager;
+
+
+// function printStaffDetails(staff: Staff) {
+//     if ('employees' in staff) {
+//       console.log(
+//         `${staff.name} is a manager of ${staff.employees.length} employees.`
+//       );
+//     } else {
+//       console.log(
+//         `${staff.name} is an employee in the ${staff.department} department.`
+//       );
+//     }
+//   }
+  
+//   const alice: Employee = { id: 1, name: 'Alice', department: 'Sales' };
+//   const steve: Employee = { id: 1, name: 'Steve', department: 'HR' };
+//   const bob: Manager = { id: 2, name: 'Bob', employees: [alice, steve] };
+  
+//   printStaffDetails(alice); // Outputs: Alice is an employee in the Sales department.
+//   printStaffDetails(bob);
+
+
+// Intersection Types
+
+type Book ={id:number; name:string; price:number};
+type DiscountedBook = Book & {discount:number};
+const book1:Book ={
+    id:2,
+    name:'How to cook a Dragon',
+    price:15,
+};
+
+const book2:Book ={
+    id:3,
+    name:'The Secret Life of Unicorns',
+    price:18,
+};
+
+const DiscountedBook:DiscountedBook ={
+    id:4,
+    name:'Gonessafa',
+    price:25,
+    discount: 0.15,
+    
 }
-console.log(processData(10)); // output 100
-console.log(processData('Hello')); // output:HELLo
-console.log(processData(`Hello`, {reverse:true})) //
+

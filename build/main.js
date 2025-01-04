@@ -4,19 +4,35 @@
 // // // awesomeName = awesomeName.toUpperCase();
 // // // // awesome = 2;
 // // // console.log(awesomeName);
-const book1 = {
-    id: 2,
-    name: 'How to cook a Dragon',
-    price: 15,
-};
-const book2 = {
-    id: 3,
-    name: 'The Secret Life of Unicorns',
-    price: 18,
-};
-const DiscountedBook = {
-    id: 4,
-    name: 'Gonessafa',
-    price: 25,
-    discount: 0.15,
-};
+const employee = getEmployee();
+console.log(employee);
+function getEmployee() {
+    const random = Math.random();
+    if (random < 0.33) {
+        return {
+            name: 'john',
+        };
+    }
+    else if (random < 0.66) {
+        return {
+            name: 'sarah',
+            dogName: 'Rex',
+        };
+    }
+    else {
+        return {
+            name: 'bob',
+            managePeople: () => console.log('Managing people...'),
+            delegateTasks: () => console.log('Delegating tasks...'),
+        };
+    }
+}
+// challenge 2 
+function isManager(obj) {
+    return 'managePeople' in obj;
+}
+;
+// console.log(isManager(employee))
+if (isManager(employee)) {
+    employee.delegateTasks();
+}

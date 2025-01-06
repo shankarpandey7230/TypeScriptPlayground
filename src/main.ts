@@ -593,49 +593,170 @@
 // }
 
 // Challenges
-interface Person {
-  name: string;
-}
+// interface Person {
+//   name: string;
+// }
 
-interface DogOwner extends Person {
-  dogName: string;
-}
+// interface DogOwner extends Person {
+//   dogName: string;
+// }
 
-interface Manager extends Person {
-  managePeople(): void;
-  delegateTasks(): void;
-}
+// interface Manager extends Person {
+//   managePeople(): void;
+//   delegateTasks(): void;
+// }
 
-const employee: Person | DogOwner | Manager = getEmployee();
-console.log(employee);
+// const employee: Person | DogOwner | Manager = getEmployee();
+// console.log(employee);
 
-function getEmployee(): Person | DogOwner | Manager {
-  const random = Math.random();
+// function getEmployee(): Person | DogOwner | Manager {
+//   const random = Math.random();
 
-  if (random < 0.33) {
-    return {
-      name: 'john',
-    };
-  } else if (random < 0.66) {
-    return {
-      name: 'sarah',
-      dogName: 'Rex',
-    };
-  } else {
-    return {
-      name: 'bob',
-      managePeople: () => console.log('Managing people...'),
-      delegateTasks: () => console.log('Delegating tasks...'),
-    };
-  }
-}
+//   if (random < 0.33) {
+//     return {
+//       name: 'john',
+//     };
+//   } else if (random < 0.66) {
+//     return {
+//       name: 'sarah',
+//       dogName: 'Rex',
+//     };
+//   } else {
+//     return {
+//       name: 'bob',
+//       managePeople: () => console.log('Managing people...'),
+//       delegateTasks: () => console.log('Delegating tasks...'),
+//     };
+//   }
+// }
 
-// challenge 2 
+// // challenge 2
 
-function  isManager (obj:Person | DogOwner | Manager):obj is Manager{
-  return 'managePeople' in obj
-};
-// console.log(isManager(employee))
-if(isManager(employee)){
-  employee.delegateTasks()
-}
+// function  isManager (obj:Person | DogOwner | Manager):obj is Manager{
+//   return 'managePeople' in obj
+// };
+// // console.log(isManager(employee))
+// if(isManager(employee)){
+//   employee.delegateTasks()
+// }
+
+// let person: [string, number] = ['john', 25];
+// let date: readonly [number, number, number] = [12, 2, 4];
+
+// // date.push(34);it wont work as it is readonly
+
+// function getPerson(): [string, number] {
+//   return ['john', 25];
+// }
+// let randomPerson = getPerson();
+// console.log(randomPerson[0]);
+// console.log(randomPerson[1]);
+
+// let susan ;[string, number?]=['susan'];
+
+// enum ServerResponseStatus {
+//   Success = 200,
+//   Error = 'Error',
+// }
+
+// interface ServerResponse {
+//   result: ServerResponseStatus;
+//   data: string[];
+// }
+
+// function getServerResponse(): ServerResponse {
+//   return {
+//     result: ServerResponseStatus.Success,
+//     data: ['first item', 'second item'],
+//   };
+// }
+
+// const response: ServerResponse = getServerResponse();
+// console.log(response);
+
+// Enums - Gotcha :Reverse Mapping
+
+// enum ServerResponseStatus {
+//   Success = 'Success',
+//   Error = 'Error',
+// }
+
+// Object.values(ServerResponseStatus).forEach((value) => {
+//   console.log(value);
+// });
+
+// enum ServerResponseStatus {
+//   Success = 200,
+//   Error = 500,
+// }
+
+// Object.values(ServerResponseStatus).forEach((value) => {
+//   if (typeof value === 'number') {
+//     console.log(value);
+//   }
+// });
+
+// enum NumericEnum {
+//   Member = 1,
+// }
+
+// enum StringEnum {
+//   Member = 'Value',
+// }
+
+// let numericEnumValue: NumericEnum = 1; // This is allowed
+// console.log(numericEnumValue); // 1
+
+// let stringEnumValue: StringEnum = 'Value'; // This is not allowed
+
+// enum ServerResponseStatus {
+//   Success = 'Success',
+//   Error = 'Error',
+// }
+
+// function getServerResponse(): ServerResponse {
+//   return {
+//     // result: ServerResponseStatus.Success,
+//     // this will not fly with string enum but ok with number
+//     result: 'Success',
+//     data: ['first item', 'second item'],
+//   };
+// }
+
+// Challenge
+// Define an enum named userRole
+//
+
+// let someValue: any = 'this is a string';
+
+// let strLength: number = (someValue as string).length;
+
+// type Bird = {
+//   name: string;
+// };
+
+// let birdString = '{"name": "Eagle"}';
+// let dogString = '{"breed": "Poodle"}';
+
+// let birdObject = JSON.parse(birdString);
+// let dogObject = JSON.parse(dogString);
+
+// let bird = birdObject as Bird;
+// let dog = dogObject as Bird;
+
+// console.log(bird.name);
+// console.log(dog.name);
+
+// enum Status {
+//   Pending = 'pending',
+//   Declined = 'declined',
+// }
+
+// type User = {
+//   name: string;
+//   status: Status;
+// };
+
+// const statusValue = 'pending';
+
+// const user: User = { name: 'john', status: statusValue as Status };

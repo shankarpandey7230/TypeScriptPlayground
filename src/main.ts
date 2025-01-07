@@ -760,3 +760,73 @@
 // const statusValue = 'pending';
 
 // const user: User = { name: 'john', status: statusValue as Status };
+
+//Type Unknown
+
+// let unknownValue: unknown;
+
+// unknownValue = 'hello world';
+// unknownValue = [1, 2, 3];
+// unknownValue = 42.334455;
+// if (typeof unknownValue === 'number') {
+//   unknownValue.toFixed(2);
+// }
+
+// function runSomeCode() {
+//   const random = Math.random();
+//   if (random < 0.5) {
+//     throw new Error('there was error ...');
+//   } else {
+//     throw 'some error';
+//   }
+// }
+
+// try {
+//   runSomeCode();
+// } catch (error) {
+//   if (error instanceof Error) {
+//     console.log(error.message);
+//   } else {
+//     console.log(error);
+//   }
+// }
+
+// let someValue: never =0;
+
+type Theme = 'light' | 'dark';
+function CheckTheme(theme: Theme) {
+  if (theme === 'light') {
+    console.log('light theme');
+    return;
+  }
+  if (theme === 'dark') {
+    console.log('dark theme');
+    return;
+  }
+  theme;
+}
+
+enum Color {
+  Red,
+  Blue,
+  Green,
+}
+function getColorName(color: Color) {
+  switch (color) {
+    case Color.Red:
+      return 'Red';
+    case Color.Blue:
+      return 'Blue';
+    case Color.Green:
+      return 'Green';
+    default:
+      // at build time
+      let unexpectedColor: never = color;
+      // at run time
+      throw new Error(`Unexpected error :${color}`);
+  }
+}
+
+console.log(getColorName(Color.Red));
+console.log(getColorName(Color.Blue));
+console.log(getColorName(Color.Green));
